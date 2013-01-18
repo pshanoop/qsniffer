@@ -91,8 +91,8 @@ void print_ascii_line(const u_char * payload, int len, int offset)
 	const u_char *ch;
 
 	fprintf(stdout, "%05d\t", offset);
-	
-        ch = payload;
+
+	ch = payload;
 
 	for (i = 0; i < len; i++) {
 		if (isprint(*ch))
@@ -133,7 +133,7 @@ void print_hex_ascii_line(const u_char * payload, int len, int offset)
 				fprintf(file, " ");
 		}
 	}
-        if (len < 8) {
+	if (len < 8) {
 		fprintf(stdout, " ");
 		if (output == 1)
 			fprintf(file, " ");
@@ -223,7 +223,7 @@ got_packet(u_char * args, const struct pcap_pkthdr *header,
 	   const u_char * packet)
 {
 
-	int count = 1;	// packet count
+	int count = 1;		// packet count
 
 	/* packet headers */
 	const struct sniff_ethernet *ethernet;	/* ethernet header */
@@ -291,7 +291,7 @@ got_packet(u_char * args, const struct pcap_pkthdr *header,
 		return;
 	}
 
-        /* tcp packet */
+	/* tcp packet */
 
 	/* tcp header offset */
 	tcp = (struct sniff_tcp *)(packet + SIZE_ETHERNET + size_ip);
@@ -320,7 +320,7 @@ got_packet(u_char * args, const struct pcap_pkthdr *header,
 	size_payload = ntohs(ip->ip_len) - (size_ip + size_tcp);
 
 	/* payload data either string/binary */
-        if (size_payload > 0) {
+	if (size_payload > 0) {
 		fprintf(stdout, "   payload (%d bytes):\n", size_payload);
 		if (output == 1)
 			fprintf(file, "   payload (%d bytes):\n", size_payload);
