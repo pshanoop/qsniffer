@@ -223,8 +223,6 @@ got_packet(u_char * args, const struct pcap_pkthdr *header,
 	   const u_char * packet)
 {
 
-	int count = 1;		// packet count
-
 	/* packet headers */
 	const struct sniff_ethernet *ethernet;	/* ethernet header */
 	const struct sniff_ip *ip;	/* ip header */
@@ -232,11 +230,6 @@ got_packet(u_char * args, const struct pcap_pkthdr *header,
 	const char *payload;	/* packet payload */
 
 	int size_ip, size_tcp, size_payload;
-
-	fprintf(stdout, "\npacket number %d:\n", count);
-	if (output == 1)
-		fprintf(file, "\npacket number %d:\n", count);
-	count++;
 
 	/* ethernet header */
 	ethernet = (struct sniff_ethernet *)(packet);
