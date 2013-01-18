@@ -1,0 +1,10 @@
+v0.2:
+* A signal handler added to handle SIGHUP,SIGINT,SIGTERM.
+* termination_handler() added.
+* (-v) Version added :P.
+* fixed saving output file if Qsniffer interrupted.
+* if filter_exp not specified then sniff all.
+* if num_packets not speicified then sniff all.
+v0.3:
+* promisc mode added
+* print type added
